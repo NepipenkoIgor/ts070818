@@ -70,3 +70,35 @@ console.log('2. getUnique() ::', getUnique(4, 4, 4));
 //      s1tar3t 2 hellow  ->  t1rat3s 2 wolleh
 //      s1ta$%r3t 2 hel^low  ->  t1ra$%t3s 2 wol^leh
 //      s1tar3t 2   low5  ->  t1rat3s 2   wol5
+
+function reverseWords(sentence: string): string {
+    const words: string[] = sentence.split(' ');
+    const resultWords: string[] = [];
+    words.forEach(((word: string) => {
+        resultWords.push(reverseWord(word));
+    }));
+    return resultWords.join(' ');
+}
+
+function reverseWord(word: string): string {
+    const wordArray: string[] = word.split('');
+
+    for (let i: number = 0; i < wordArray.length / 2; i++) {
+        const mirrorIndex: number = wordArray.length - 1 - i;
+
+        if (isLetter(wordArray[i]) && isLetter(wordArray[mirrorIndex])) {
+            const tmp: string = wordArray[i];
+            wordArray[i] = wordArray[mirrorIndex];
+            wordArray[mirrorIndex] = tmp;
+        }
+    }
+    return wordArray.join('');
+}
+
+function isLetter(symbol: string): boolean {
+    return symbol.match(/^[a-zA-Z]+$/) !== null;
+}
+
+console.log('1. Reverse function ::', reverseWords('s1tar3t 2 hellow'));
+console.log('2. Reverse function ::', reverseWords('s1ta$%r3t 2 hel^low'));
+console.log('3. Reverse function ::', reverseWords('s1tar3t 2   low5'));
