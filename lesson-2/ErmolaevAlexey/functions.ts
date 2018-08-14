@@ -24,6 +24,27 @@ console.log('4. isInArray(): FALSE + warning ::', isInArray(mySourceArray));
 // 2)   Написать функцию summator(), которая сумирует переданые ей аргументы.
 //      Аргументы могут быть либо строкового либо числового типа. Количество их не ограничено. Проверяйте NaN
 
+type TSummatorItem = number | string;
+
+function summator(...values: TSummatorItem[]): number {
+    let result: number = 0;
+
+    for (let i: number = 0; i < values.length; i++) {
+        const value: TSummatorItem = values[i];
+
+        if (typeof value === 'number') {
+            result += value;
+        } else {
+            const convertedValue: number = +value || 0;
+            result += convertedValue;
+        }
+    }
+
+    return result;
+}
+
+console.log('1. summator()', summator(2, '2', 2, 'invalid'));
+
 // 3)   Написать функцию getUnique(arr), которая принимает аргументом неограниченое число аргументов,
 //      и возвращает массив уникальных элементов. Аргумент не должен изменяться.
 //      Порядок элементов результирующего массива должен совпадать с порядком,
