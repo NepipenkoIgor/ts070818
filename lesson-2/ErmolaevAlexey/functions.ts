@@ -43,12 +43,27 @@ function summator(...values: TSummatorItem[]): number {
     return result;
 }
 
-console.log('1. summator()', summator(2, '2', 2, 'invalid'));
+console.log('1. summator() ::', summator(2, '2', 2, 'invalid'));
 
 // 3)   Написать функцию getUnique(arr), которая принимает аргументом неограниченое число аргументов,
 //      и возвращает массив уникальных элементов. Аргумент не должен изменяться.
 //      Порядок элементов результирующего массива должен совпадать с порядком,
 //      в котором они встречаются в оригинальной структуре.
+
+function getUnique<T>(...sourceArray: T[]): T[] {
+    const targetArray: T[] = [];
+
+    sourceArray.forEach((value: T) => {
+        if (targetArray.indexOf(value) < 0) {
+            targetArray.push(value);
+        }
+    });
+
+    return targetArray;
+}
+
+console.log('1. getUnique() ::', getUnique(1, 1, 2, 3, 4, null, 5, 5, 5, 5, 6, 6, 6, 6, 7, undefined));
+console.log('2. getUnique() ::', getUnique(4, 4, 4));
 
 // 4)   Написать функцию котороя будет разворачивать буквы в словах предложения, но только лишь буквы
 //      цифры и специальные символы должны остаться на месте
