@@ -1,4 +1,4 @@
-function reverseSentence(sentence: string): string {
+export function reverseSentence(sentence: string): string {
     const splittedSentence: string[] = splitSentence(sentence);
     return splittedSentence
         .map((word: string) => reverseWord(word))
@@ -20,22 +20,26 @@ function splitSentence(sentence: string): string[] {
         match = regExp.exec(sentence);
     }
 
+    const lastWord: string = sentence.slice(lastIndex, sentence.length);
+    result.push(lastWord);
+
     return result;
 }
 
 function reverseWord(word: string): string {
-    const isWord: boolean = /[a-zA-Z]+/.test(word);
+    const wordRegExp: RegExp = /[a-zA-Z]+/;
+    const isWord: boolean = wordRegExp.test(word);
     if (!isWord) {
         return word;
     }
 
     const letters: string[] = word.split('');
     const reversed: string[] = letters
-        .filter((letter: string) => /[a-zA-Z]+/.test(letter))
+        .filter((letter: string) => wordRegExp.test(letter))
         .reverse();
 
     letters.forEach((letter: string, index: number) => {
-        if (/[a-zA-Z]+/.test(letter)) { return; }
+        if (wordRegExp.test(letter)) { return; }
         reversed.splice(index, 0, letter);
     });
 

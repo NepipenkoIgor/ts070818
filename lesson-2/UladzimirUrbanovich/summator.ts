@@ -1,13 +1,13 @@
-function summator(...args: string[]): string;
-function summator(...args: number[]): number;
-function summator(...args: any[]): string | number | never {
-    if (!args.length) {
-        throw new Error('You must provide at least one argument');
-    }
+export function summator(...args: (string | number)[]): number {
+    let result: number = 0;
 
-    if (typeof args[0] === 'string') {
-        return args.join('');
-    } else {
-        return args.reduce((first: number, second: number) => first + second, 0);
-    }
+    args.forEach((item: string | number) => {
+        if (typeof item === 'string') {
+            const isValidString: boolean = /^[0-9]*[.]?[0-9]+$/.test(item);
+            item = isValidString ? parseFloat(item) : 0;
+        }
+        result += (item || 0);
+    });
+
+    return result;
 }
