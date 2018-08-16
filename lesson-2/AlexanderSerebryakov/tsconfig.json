@@ -67,6 +67,6 @@
     /* Enables experimental support for emitting type metadata for decorators. */
   },
   "exclude": [
-    "./function.ts","./summator.ts"
+    "./function.ts"
   ]
 }
