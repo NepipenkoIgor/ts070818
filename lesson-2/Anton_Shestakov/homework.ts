@@ -16,17 +16,19 @@
  * @param {T} rest - переданные значения после первого параметра
  * @returns {boolean} true - если все аргументы кроме первого входят в первый, иначе false
  */
-// function isInArray<T>(arr: T[], ...rest: T[]): boolean {
-//     return rest.every( (item: T): boolean => {
-//         return !!( ~arr.indexOf(item) );
-//     });
-// }
+function isInArray<T>(arr: T[], ...rest: T[]): boolean {
+    return rest.every( (item: T): boolean => {
+        return !!( ~arr.indexOf(item) );
+    });
+}
 
 // Task 1 Validation
 // tslint:disable-next-line
-// console.log( ` 1, 0, 9 in array [7, 0, 1] is ${ isInArray([7, 0, 1], 1, 0, 9) } `);
-// // tslint:disable-next-line
-// console.log( `'s', 1, 3, 's' in array [1, 's', 3] is ${ isInArray([1, 's', 3], 's', 1, 3, 's') } `);
+console.log('Task 1 Validation: isInArray');
+// tslint:disable-next-line
+console.log( ` 1, 0, 9 in array [7, 0, 1] is ${ isInArray([7, 0, 1], 1, 0, 9) } `);
+// tslint:disable-next-line
+console.log( `'s', 1, 3, 's' in array [1, 's', 3] is ${ isInArray([1, 's', 3], 's', 1, 3, 's') } `);
 
 /**
  * Task 2
@@ -41,32 +43,34 @@
  * @returns {number}
  */
 
-// type StringOrNumber = string | number;
-//
-// function summator(...rest: StringOrNumber[]): number {
-//     let sum: number = 0;
-//
-//     rest.forEach( (item: StringOrNumber): void => {
-//         if (typeof item === 'number') {
-//             sum += item;
-//         } else {
-//             const num: number = parseFloat(item);
-//             if (!isNaN(num)) {
-//                 sum += num;
-//             }
-//         }
-//     } );
-//
-//     return sum;
-// }
+type StringOrNumber = string | number;
+
+function summator(...rest: StringOrNumber[]): number {
+    let sum: number = 0;
+
+    rest.forEach( (item: StringOrNumber): void => {
+        if (typeof item === 'number') {
+            sum += item;
+        } else {
+            const num: number = parseFloat(item);
+            if (!isNaN(num)) {
+                sum += num;
+            }
+        }
+    } );
+
+    return sum;
+}
 
 // Task 2 Validation
 // tslint:disable-next-line
-// console.log( `Sum of 5, 3, 2 is ${summator(5, 3, 2)}` );
-// // tslint:disable-next-line
-// console.log( `Sum of '7', 4, 's0', '10ss' is ${summator('7', 4, 's0', '10ss')}` );
-// // tslint:disable-next-line
-// console.log( `Sum of 0, -1, -8.5 is ${summator(0, -1, -8.5)}` );
+console.log('\nTask 2 Validation: summator');
+// tslint:disable-next-line
+console.log( `Sum of 5, 3, 2 is ${summator(5, 3, 2)}` );
+// tslint:disable-next-line
+console.log( `Sum of '7', 4, 's0', '10ss' is ${summator('7', 4, 's0', '10ss')}` );
+// tslint:disable-next-line
+console.log( `Sum of 0, -1, -8.5 is ${summator(0, -1, -8.5)}` );
 
 
 /**
@@ -97,22 +101,24 @@
  * @param {T} arr - список передаваемых аргументов
  * @returns {T[]} - массив уникальных элементов
  */
-// function getUnique<T>(...arr: T[] ): T[] {
-//     const unique: T[] = [];
-//
-//     arr.forEach( (item: T): void => {
-//         if (!~unique.indexOf(item)) {
-//             unique.push(item);
-//         }
-//     });
-//     return unique;
-// }
+function getUnique<T>(...arr: T[] ): T[] {
+    const unique: T[] = [];
+
+    arr.forEach( (item: T): void => {
+        if (!~unique.indexOf(item)) {
+            unique.push(item);
+        }
+    });
+    return unique;
+}
 
 // Task 3 Validation
 // tslint:disable-next-line
-// console.log( `Unique elements of 'sd', '1', 'sd', 'x', '1' is ${ getUnique('sd', '1', 'sd', 'x', '1') } ` );
+console.log('\nTask 3 Validation: getUnique');
 // tslint:disable-next-line
-// console.log( `Unique elements of 100, 0, 56, 29, 56, 4, 1, 4, 100 is ${ getUnique(100, 0, 56, 29, 56, 4, 1, 4, 100) } ` );
+console.log( `Unique elements of 'sd', '1', 'sd', 'x', '1' is ${ getUnique('sd', '1', 'sd', 'x', '1') } ` );
+// tslint:disable-next-line
+console.log( `Unique elements of 100, 0, 56, 29, 56, 4, 1, 4, 100 is ${ getUnique(100, 0, 56, 29, 56, 4, 1, 4, 100) } ` );
 
 
 /**
@@ -162,6 +168,9 @@ function reverseText(str: string): string {
     return result;
 }
 
+// Task 4 Validation
+// tslint:disable-next-line
+console.log('\nTask 4 Validation: reverseText');
 // tslint:disable-next-line
 console.log( `s1tar3t 2 hellow -> ${reverseText('s1tar3t 2 hellow')}`);
 // tslint:disable-next-line
