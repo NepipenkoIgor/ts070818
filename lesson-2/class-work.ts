@@ -147,5 +147,6 @@ class MathLib {
 }
 
 const lib: MathLib = new MathLib();
+
 lib.areaOfCircle(10);
 lib.areaOfCircle(2);
