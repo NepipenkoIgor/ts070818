@@ -11,7 +11,7 @@
  */
 
 /**
- * Функция проверяет, что все значения из rest присутствуют в arr
+ * Проверяет, что все значения из rest присутствуют в arr
  * @param {T[]} arr - первый параметр - массив значений
  * @param {T} rest - переданные значения после первого параметра
  * @returns {boolean} true - если все аргументы кроме первого входят в первый, иначе false
@@ -38,7 +38,7 @@ console.log( `'s', 1, 3, 's' in array [1, 's', 3] is ${ isInArray([1, 's', 3], '
  */
 
 /**
- * Функция суммирует переданные аргументы
+ * Суммирует переданные аргументы
  * @param {[(string | number)]} rest - переданные аргументы
  * @returns {number}
  */
@@ -131,7 +131,7 @@ console.log( `Unique elements of 100, 0, 56, 29, 56, 4, 1, 4, 100 is ${ getUniqu
  */
 
 /**
- * Функция разворачивает буквы без спецсимволов и цифр в строке
+ * Разворачивает буквы без спецсимволов и цифр в строке
  * @param {string} str - принимаемая строка
  * @returns {string} - преобразованная строка
  */
@@ -144,8 +144,7 @@ function reverseText(str: string): string {
     }
 
     words.forEach( (word: string) => {
-        let resultWord: string = word;
-        const symbols: any = {};
+        const symbols: { [key: number]: string } = {};
         const specialSymbolsRegexp: RegExp = /[^a-zA-Zа-яА-Я]/g;
 
         for (let i: number = 0; i < word.length; ++i) {
@@ -162,7 +161,7 @@ function reverseText(str: string): string {
                 reversedWordArray.splice(+i, 0, '' + symbols[i]);
             }
         }
-        resultWord = reversedWordArray.join('');
+        const resultWord: string = reversedWordArray.join('');
         result = result.replace(word, resultWord);
     });
     return result;
