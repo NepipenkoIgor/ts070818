@@ -1,0 +1,1 @@
+type strOrNum = number | string;
