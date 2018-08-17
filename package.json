@@ -1,18 +1,28 @@
 {
   "name": "ts070818",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jasmine-ts ./**/*.spec.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jasmine": "^2.8.8",
     "@types/jquery": "^3.3.5",
+    "jasmine-ts": "^0.2.1",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typescript": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderSereryakov/ts070818.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexanderSereryakov/ts070818/issues"
+  },
+  "homepage": "https://github.com/AlexanderSereryakov/ts070818#readme",
+  "description": ""
 }
