@@ -1,4 +1,3 @@
-
 /**
  * Написать функцию getUnique(arr), которая принимает аргументом неограниченое число аргументов,
  * и возвращает массив уникальных элементов. Аргумент не должен изменяться.
@@ -6,14 +5,12 @@
  * в котором они встречаются в оригинальной структуре.
  */
 
-function getUnique<T>(arr: T[]): T[]
-{
+function getUnique<T>(arr: T[]): T[] {
     const res: T[] = [];
 
     const uniq: Map<T, boolean> = new Map();
 
-    for (const v of arr)
-    {
+    for (const v of arr) {
         uniq.set(v, true);
     }
 
