@@ -67,6 +67,6 @@
     /* Enables experimental support for emitting type metadata for decorators. */
   },
   "include": [
-    "./lesson-3/class-work.ts"
+    "./lesson-2/VasilevAlexey/functions.ts"
   ]
 }
