@@ -6,7 +6,7 @@ function isInArray<T>(array: ReadonlyArray<T>, ...args: T[]): boolean {
 // 2
 type summerArgs = string | number;
 function summator(...args: summerArgs[]): number {
-    return Array.from(args).reduce<number>((accum: number, item: summerArgs) => {
+    return args.reduce<number>((accum: number, item: summerArgs) => {
         return typeof item === 'string' ? !isNaN(parseInt(item)) ? parseInt(item) + accum : accum : item + accum;
     }, 0);
 }
