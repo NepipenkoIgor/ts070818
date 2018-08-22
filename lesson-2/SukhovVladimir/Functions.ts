@@ -18,11 +18,7 @@ function summator(...args: summerArgs[]): number {
 // 3
 
 function getUnique(...args: object[]): object[] {
-    const result: Set<object> = new Set();
-    for (const item of Array.from(args)) {
-        result.add(item);
-    }
-    return Array.from(result);
+   return Array.from(new Set(args));
 }
 
 // 4
