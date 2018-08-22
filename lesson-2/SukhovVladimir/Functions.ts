@@ -1,11 +1,6 @@
 // 1 isInArray
 function isInArray<T>(array: ReadonlyArray<T>, ...args: T[]): boolean {
-    for (const item of Array.from(args)) {
-           if (array.indexOf(item) === -1) {
-                return false;
-           }
-    }
-    return true;
+    return !args.some((item: T) => array.indexOf(item) === -1 );
 }
 
 // 2
