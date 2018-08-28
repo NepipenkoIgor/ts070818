@@ -57,7 +57,7 @@ function reverseWord(word: string): string {
         if (inMap < 0) {
             newWord += word.charAt(index);
         } else {
-            newWord += map[map.length - 1 - inMap].symb
+            newWord += map[map.length - 1 - inMap].symb;
         }
     }
     return newWord;
