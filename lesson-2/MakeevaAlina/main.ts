@@ -32,3 +32,42 @@ function getUnique(...input: primitive[]): primitive[] {
     }
     return result;
 }
+
+type idxMap = {
+    idx: number,
+    symb: string
+};
+function reverseWord(word: string): string {
+    const letters: string[] = word.split('');
+    const map: idxMap[] = letters
+            .map((symb: string, idx: number) =>  {
+                return { idx, symb };
+            })
+            .filter((letter: idxMap) => {
+                return /^[A-zА-яЁё]$/.test(letter.symb) &&
+                    (['[', ']', '`', '_', '^'].indexOf(letter.symb) < 0);
+            });
+    let newWord: string = '';
+
+    for (let index: number = 0; index < word.length; index++) {
+        const inMap: number = map.reduce((result: number , value: idxMap, idx: number ) => {
+            result = (value.idx === index) ? idx : result;
+            return result;
+            }, -1);
+        if (inMap < 0) {
+            newWord += word.charAt(index);
+        } else {
+            newWord += map[map.length - 1 - inMap].symb
+        }
+    }
+    return newWord;
+}
+
+function reverseWords(term: string): string {
+    const words: string[] = term.split(' ');
+    const newWords: string[] = [];
+    for (const word of words) {
+        newWords.push(reverseWord(word));
+    }
+    return newWords.join(' ');
+}
