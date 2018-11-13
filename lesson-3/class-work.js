@@ -1,3 +1,4 @@
+"use strict";
 // const customSequence$: Observable<number> =
 //     Observable.create((observer: Observer<number>) => {
 //         let count: number = 0;
@@ -8,7 +9,6 @@
 //             }
 //         }, 1000);
 //     });
-
 // const customSequence$: Observable<number> = from([1, 23, 44, 55]);
 //
 // customSequence$
@@ -28,7 +28,6 @@
 //         console.log(`Sub2 ${value}`);
 //     });
 // }, 5000);
-
 // const customSequence$$: BehaviorSubject<number> = new BehaviorSubject(-1);
 // customSequence$$.next(1);
 // // customSequence$$.next(2);
@@ -43,7 +42,6 @@
 // import { map, observeOn } from 'rxjs/internal/operators';
 // import { asap } from 'rxjs/internal/scheduler/asap';
 // import { async } from 'rxjs/internal/scheduler/async';
-
 // const arr: number[] = [];
 // for (let i: number = 0; i < 1000; i++) {
 //     arr.push(i);
@@ -57,7 +55,6 @@
 //     .subscribe(((value: number) => {}), () => {}, () => {
 //         console.timeEnd('Scchedule');
 //     });
-
 // console.log('start');
 // setTimeout(() => {
 //     console.log('timeout');
